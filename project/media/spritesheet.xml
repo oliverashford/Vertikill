@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:d0aee544100bd2aaee57425d24a71f2d$ -->
+<!-- $TexturePacker:SmartUpdate:9c12c399f246b793f493952fdc25b8e5$ -->
 <TextureAtlas imagePath="spritesheet.png">
-    <SubTexture name="martian_1" x="2" y="2" width="60" height="55"/>
-    <SubTexture name="martian_2" x="64" y="2" width="60" height="55"/>
-    <SubTexture name="martian_3" x="2" y="59" width="60" height="55"/>
-    <SubTexture name="martian_4" x="64" y="59" width="60" height="55"/>
+    <SubTexture name="bullet_1" x="2" y="2" width="16" height="39"/>
+    <SubTexture name="bullet_2" x="20" y="2" width="16" height="39"/>
+    <SubTexture name="coin_1" x="38" y="2" width="30" height="32"/>
+    <SubTexture name="coin_2" x="70" y="2" width="30" height="32"/>
+    <SubTexture name="coin_3" x="102" y="2" width="30" height="32"/>
+    <SubTexture name="coin_4" x="134" y="2" width="30" height="32"/>
+    <SubTexture name="coin_5" x="166" y="2" width="30" height="32"/>
+    <SubTexture name="coin_6" x="198" y="2" width="30" height="32"/>
+    <SubTexture name="coin_7" x="230" y="2" width="30" height="32"/>
+    <SubTexture name="coin_8" x="262" y="2" width="30" height="32"/>
+    <SubTexture name="grass_1" x="294" y="2" width="640" height="960"/>
+    <SubTexture name="grass_2" x="936" y="2" width="640" height="960"/>
+    <SubTexture name="grass_3" x="2" y="964" width="640" height="960"/>
+    <SubTexture name="martian_1" x="644" y="964" width="60" height="55"/>
+    <SubTexture name="martian_2" x="706" y="964" width="60" height="55"/>
+    <SubTexture name="martian_3" x="768" y="964" width="60" height="55"/>
+    <SubTexture name="martian_4" x="830" y="964" width="60" height="55"/>
+    <SubTexture name="plane_1" x="892" y="964" width="64" height="92"/>
+    <SubTexture name="plane_2" x="958" y="964" width="64" height="92"/>
 </TextureAtlas>

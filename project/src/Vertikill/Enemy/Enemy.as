@@ -2,6 +2,8 @@ package Vertikill.Enemy
 {
 	import com.greensock.TweenMax;
 	
+	import Vertikill.Assets;	
+	
 	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.MovieClip;
@@ -35,7 +37,6 @@ package Vertikill.Enemy
 		
 		private function _createEnemyGfx():void 
 		{
-			
 			// create the movie clip from the sprites in the sprite atlas which came from fiels with the name 'martian_'
 			this._enemyGfx = new MovieClip(Assets.getAtlas().getTextures('martian_'), 16);
 						

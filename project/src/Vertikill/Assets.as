@@ -1,4 +1,4 @@
-package 
+package Vertikill
 {
 	import flash.utils.Dictionary;
 	import flash.display.Bitmap;
@@ -12,26 +12,11 @@ package
 	 */
 	
 	public class Assets 
-	{
-		[Embed(source = "../media/grass_1.png")]
-		private static const Grass1:Class;
-		
-		[Embed(source = "../media/grass_2.png")]
-		private static const Grass2:Class;
-		
-		[Embed(source = "../media/grass_3.png")]
-		private static const Grass3:Class;
-		
-		[Embed(source = "../media/plane.png")]
-		private static const Plane:Class;
-		
-		[Embed(source = "../media/bullet.png")]
-		private static const Bullet:Class;
-		
-		[Embed(source="../media/spritesheet.png")]
+	{		
+		[Embed(source="../../media/spritesheet.png")]
 		private static const SpriteSheet:Class;
 		
-		[Embed(source="../media/spritesheet.xml", mimeType="application/octet-stream")]
+		[Embed(source="../../media/spritesheet.xml", mimeType="application/octet-stream")]
 		private static const SpriteSheetXML:Class;
 		
 		private static var _textures:Dictionary = new Dictionary();

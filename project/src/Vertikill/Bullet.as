@@ -26,7 +26,7 @@ package Vertikill
 			this.y = _y;
 			
 			// create a Image object with our one texture
-			var bulletImage:Image = new Image(Assets.getTexture('Bullet'));
+			var bulletImage:Image = new Image(Assets.getAtlas().getTexture('bullet_1'));
 
 			// show it
 			this.addChild(bulletImage);

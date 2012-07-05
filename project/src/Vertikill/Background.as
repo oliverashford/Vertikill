@@ -54,8 +54,8 @@ package Vertikill
 			var rand:uint = Math.floor(Math.random() * (3)) + 1;
 			
 			// create a Image object with our one texture
-			var grassImage:Image = new Image(Assets.getTexture('Grass' + rand));
-			
+			var grassImage:Image = new Image(Assets.getAtlas().getTexture('grass_' + rand));
+						
 			grassImage.y = -this._screenHeight * this._panels.length;
 			
 			// add to collection of backgrounds

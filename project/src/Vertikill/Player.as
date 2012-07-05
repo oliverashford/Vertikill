@@ -1,6 +1,7 @@
 package Vertikill 
 {
-	import starling.display.Image;
+	import starling.core.Starling;
+	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	
@@ -13,6 +14,8 @@ package Vertikill
 	{
 		private var _col:uint = 0;
 		private var _dX:uint = 10;		// player horizontal speed
+		
+		private var _playerGfx:MovieClip;
 					
 		public function Player(_startingCol:uint) 
 		{
@@ -21,11 +24,14 @@ package Vertikill
 			// set starting col
 			this._col = _startingCol;
 			
-			// create a Image object with our one texture
-			var playerImage:Image = new Image(Assets.getTexture('Plane'));
-
+			// create the movie clip from the sprites in the sprite atlas which came from fiels with the name 'martian_'
+			this._playerGfx = new MovieClip(Assets.getAtlas().getTextures('plane_'), 1);
+						
+			// start the jugler to animate
+			Starling.juggler.add(this._playerGfx);
+			
 			// show it
-			this.addChild(playerImage);
+			this.addChild(this._playerGfx);
 		}		
 		
 		public function get col():uint 
