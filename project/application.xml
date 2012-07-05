@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.2">
+  <id>com.onebigtiger.vertikill</id>
+  <versionNumber>0.1</versionNumber>
+  <filename>Vertikill</filename>
+  <name>Vertikill</name>
+  <initialWindow>
+    <content>bin/Vertikill.swf</content>
+    <renderMode>direct</renderMode>
+    <fullScreen>true</fullScreen>
+    <aspectRatio>portrait</aspectRatio>
+    <autoOrients>true</autoOrients>
+    <systemChrome>none</systemChrome>
+    <maximizable>true</maximizable>
+    <x>10</x>
+    <y>10</y>
+    <width>640</width>
+    <height>960</height>
+    <minSize>200 200</minSize>
+    <maxSize>640 960</maxSize>
+    <title>Vertikill</title>
+    <visible>true</visible>
+    <resizable>true</resizable>
+    <minimizable>true</minimizable>
+  </initialWindow>
+  <supportedProfiles>desktop mobileDevice</supportedProfiles>
+  <icon>
+    <image29x29>bin/icons/icon29.png</image29x29>
+    <image48x48>bin/icons/icon48.png</image48x48>
+    <image57x57>bin/icons/icon57.png</image57x57>
+    <image512x512>bin/icons/icon512.png</image512x512>
+    <image114x114>bin/icons/icon114.png</image114x114>
+  </icon>
+  <iPhone>
+    <InfoAdditions><![CDATA[<key>UIStatusBarStyle</key>
+<string>UIStatusBarStyleBlackOpaque</string>
+<key>UIRequiresPersistentWiFi</key>
+<string>NO</string>
+<key>UIPrerenderedIcon</key>
+<false />
+<key>UIDeviceFamily</key>
+<array>
+	<string>1</string>
+	<!-- iPhone support -->
+	<string>2</string>
+	<!-- iPad support -->
+</array>]]></InfoAdditions>
+    <requestedDisplayResolution>high</requestedDisplayResolution>
+  </iPhone>
+</application>

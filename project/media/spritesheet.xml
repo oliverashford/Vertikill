@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:d0aee544100bd2aaee57425d24a71f2d$ -->
+<TextureAtlas imagePath="spritesheet.png">
+    <SubTexture name="martian_1" x="2" y="2" width="60" height="55"/>
+    <SubTexture name="martian_2" x="64" y="2" width="60" height="55"/>
+    <SubTexture name="martian_3" x="2" y="59" width="60" height="55"/>
+    <SubTexture name="martian_4" x="64" y="59" width="60" height="55"/>
+</TextureAtlas>

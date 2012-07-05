@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="2">
+  <!-- Output SWF options -->
+  <output>
+    <movie outputType="Application" />
+    <movie input="" />
+    <movie path="bin\Vertikill.swf" />
+    <movie fps="30" />
+    <movie width="640" />
+    <movie height="960" />
+    <movie version="3" />
+    <movie minorVersion="3" />
+    <movie platform="AIR" />
+    <movie background="#FFFFFF" />
+  </output>
+  <!-- Other classes to be compiled into your SWF -->
+  <classpaths>
+    <class path="src" />
+  </classpaths>
+  <!-- Build options -->
+  <build>
+    <option accessible="False" />
+    <option allowSourcePathOverlap="False" />
+    <option benchmark="False" />
+    <option es="False" />
+    <option locale="" />
+    <option loadConfig="" />
+    <option optimize="True" />
+    <option omitTraces="True" />
+    <option showActionScriptWarnings="True" />
+    <option showBindingWarnings="True" />
+    <option showInvalidCSS="True" />
+    <option showDeprecationWarnings="True" />
+    <option showUnusedTypeSelectorWarnings="True" />
+    <option strict="True" />
+    <option useNetwork="True" />
+    <option useResourceBundleMetadata="True" />
+    <option warnings="True" />
+    <option verboseStackTraces="False" />
+    <option linkReport="" />
+    <option loadExterns="" />
+    <option staticLinkRSL="True" />
+    <option additional="" />
+    <option compilerConstants="" />
+    <option minorVersion="" />
+  </build>
+  <!-- SWC Include Libraries -->
+  <includeLibraries>
+    <!-- example: <element path="..." /> -->
+  </includeLibraries>
+  <!-- SWC Libraries -->
+  <libraryPaths>
+    <element path="src\starling.swc" />
+    <element path="src\greensock.swc" />
+  </libraryPaths>
+  <!-- External Libraries -->
+  <externalLibraryPaths>
+    <!-- example: <element path="..." /> -->
+  </externalLibraryPaths>
+  <!-- Runtime Shared Libraries -->
+  <rslPaths>
+    <!-- example: <element path="..." /> -->
+  </rslPaths>
+  <!-- Intrinsic Libraries -->
+  <intrinsics>
+    <!-- example: <element path="..." /> -->
+  </intrinsics>
+  <!-- Assets to embed into the output SWF -->
+  <library>
+    <asset path="media\grass.png" />
+    <asset path="media\grass_320_480.png" />
+    <asset path="media\plane_320_480.png" />
+    <asset path="media\bullet_320_480.png" />
+    <asset path="media\bullet.png" />
+    <asset path="media\plane.png" />
+    <asset path="media\spritesheet.png" />
+    <asset path="media\grass_1.png" />
+    <asset path="media\grass_2.png" />
+    <asset path="media\grass_3.png" />
+  </library>
+  <!-- Class files to compile (other referenced classes will automatically be included) -->
+  <compileTargets>
+    <compile path="src\Vertikill\Main.as" />
+  </compileTargets>
+  <!-- Paths to exclude from the Project Explorer tree -->
+  <hiddenPaths>
+    <!-- example: <hidden path="..." /> -->
+  </hiddenPaths>
+  <!-- Executed before build -->
+  <preBuildCommand>taskkill /f /fi "IMAGENAME eq adl.exe"</preBuildCommand>
+  <!-- Executed after build -->
+  <postBuildCommand alwaysRun="False" />
+  <!-- Other project options -->
+  <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="C:\AIRFLEXSDK\bin\adl.exe;application.xml .\" />
+  </options>
+  <!-- Plugin storage -->
+  <storage />
+</project>
