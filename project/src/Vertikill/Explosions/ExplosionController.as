@@ -1,4 +1,4 @@
-package Vertikill.Explosion 
+package Vertikill.Explosions
 {
 	import starling.core.Starling;
 	import starling.display.Sprite;
@@ -27,6 +27,20 @@ package Vertikill.Explosion
         {
             _explosions = new Vector.<PDParticleSystem>();
         }
+		
+		// PRIVATE
+		    
+		private function _removeParticle(event:Event):void
+        {
+			trace('REMOVING PARTICLE');
+			
+            var ex:PDParticleSystem = event.target as PDParticleSystem;           
+            ex.stop();
+            Starling.juggler.remove(ex);
+            removeChild(ex, true);
+        }
+		
+		// PUBLIC
         
         public function addExplosion(_x:uint, _y:uint):void
         {
@@ -41,22 +55,15 @@ package Vertikill.Explosion
 			
 			this._explosions.push(explosion);
             
+			explosion.width = 20;
+			explosion.height = 20;
+			
 			explosion.emitterX = _x;
             explosion.emitterY = _y;
             
 			explosion.start();
             
 			this.addChild(explosion);
-        }
-        
-		private function _removeParticle(event:Event):void
-        {
-			trace('REMOVING PARTICLE');
-			
-            var ex:PDParticleSystem = event.target as PDParticleSystem;           
-            ex.stop();
-            Starling.juggler.remove(ex);
-            removeChild(ex, true);
         }
 		
 	}

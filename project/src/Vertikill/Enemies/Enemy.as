@@ -1,4 +1,4 @@
-package Vertikill.Enemy 
+package Vertikill.Enemies 
 {
 	import com.greensock.TweenMax;
 	

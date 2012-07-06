@@ -1,10 +1,11 @@
-package Vertikill.Enemy
+package Vertikill.Enemies
 {
 	import flash.geom.Rectangle;
+	
+	import Vertikill.Explosions.ExplosionController;
+	
 	import starling.core.Starling;
 	import starling.display.Sprite;
-	import Vertikill.Explosion.ExplosionController;
-	
 	import starling.textures.Texture;	
 	import starling.extensions.*;
 	
@@ -27,6 +28,16 @@ package Vertikill.Enemy
 			
 			this.addEnemy();
 		}
+		
+		// PRIVATE
+		
+		private function removeEnemy(_index:uint):void 
+		{
+			this.removeChild(this._enemies[_index]);
+			this._enemies.splice(_index, 1);
+		}
+		
+		// PUBLIC
 		
 		public function addEnemy():void
 		{
@@ -62,12 +73,6 @@ package Vertikill.Enemy
 			this.removeEnemy(_index);
 			
 			this._explosionController.addExplosion(tempX, tempY);
-		}
-		
-		private function removeEnemy(_index:uint):void 
-		{
-			this.removeChild(this._enemies[_index]);
-			this._enemies.splice(_index, 1);
 		}
 		
 		public function get enemies():Vector.<Enemy>

@@ -1,4 +1,4 @@
-package Vertikill.Explosion 
+package Vertikill.Explosions 
 {
 	/**
 	 * ...

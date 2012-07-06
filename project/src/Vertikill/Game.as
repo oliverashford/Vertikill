@@ -2,9 +2,10 @@ package Vertikill
 {	
 	import flash.display.Bitmap;
 	import flash.geom.Point;
-	import Vertikill.Explosion.ExplosionController;
+	import Vertikill.Collectibles.CollectibleController;
 	
-	import Vertikill.Enemy.EnemyController;
+	import Vertikill.Explosions.ExplosionController;
+	import Vertikill.Enemies.EnemyController;
 	
 	import fr.kouma.starling.utils.Stats;
 	
@@ -30,6 +31,7 @@ package Vertikill
 		private var _player:Player;
 		private var _enemyController:EnemyController;
 		private var _explosionController:ExplosionController;
+		private var _collectibleController:CollectibleController;
 		private var _goldCounter:GoldCounter = new GoldCounter;
 		private var _distanceCounter:DistanceCounter = new DistanceCounter;
 		
@@ -69,11 +71,15 @@ package Vertikill
 			this._player = new Player(this._lastFingerCol);
 			this.addChild(this._player);
 			
-			// add Explosions
+			// add Explosion controller
 			this._explosionController = new ExplosionController();
 			this.addChild(this._explosionController);
 			
-			// add Enemies
+			// add Collectible controller
+			this._collectibleController = new CollectibleController();
+			this.addChild(this._collectibleController);
+			
+			// add Enemy controller
 			this._enemyController = new EnemyController(this._explosionController);
 			this.addChild(this._enemyController);
 			
