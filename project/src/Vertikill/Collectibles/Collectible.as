@@ -26,6 +26,8 @@ package Vertikill.Collectibles
 			this.addEventListener(Event.ADDED_TO_STAGE, this._onAddedToStage);
 		}
 		
+		// PRIVATE
+		
 		private function _onAddedToStage(_event:Event):void 
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, _onAddedToStage);
@@ -44,6 +46,8 @@ package Vertikill.Collectibles
 			// add to stage
 			this.addChild(this._collectibleGfx);
 		}
+		
+		// PUBLIC
 		
 		public function get dY():int 
 		{

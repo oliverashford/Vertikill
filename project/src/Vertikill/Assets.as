@@ -13,6 +13,11 @@ package Vertikill
 	
 	public class Assets 
 	{		
+        // particle textures
+        [Embed(source = "../../media/particles/sun_particle.png")]
+        private static const SunParticle:Class;
+		
+		// sprites sheet
 		[Embed(source="../../media/spritesheet.png")]
 		private static const SpriteSheet:Class;
 		
@@ -37,6 +42,8 @@ package Vertikill
 			
 			return _atlus;
 		}
+		
+		// PUBLIC
 		
 		public static function getTexture(_name:String):Texture
 		{

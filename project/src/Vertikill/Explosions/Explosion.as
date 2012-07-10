@@ -5,6 +5,8 @@ package Vertikill.Explosions
 	import starling.events.Event;
 	import starling.textures.Texture;
 	
+	import Vertikill.Assets;
+	
 	/**
 	 * ...
 	 * @author Oli Ashford
@@ -15,19 +17,13 @@ package Vertikill.Explosions
 	    // particle config
         [Embed(source="../../../media/particles/sun.pex", mimeType="application/octet-stream")]
         private static const SunConfig:Class;
-        
-        // particle textures
-        [Embed(source = "../../../media/particles/sun_particle.png")]
-        private static const SunParticle:Class;
-		
+        		
 		public function Explosion(_x:uint, _y:uint, _lifeTime:Number)
-		{		
-			trace('ADDING PARTICLE EMITTER');
-			
+		{					
+			// get the particle xml config and the 
 			var psConfig:XML = XML(new SunConfig());
-            var psTexture:Texture = Texture.fromBitmap(new SunParticle());		
-			
-			super(psConfig, psTexture);
+            			
+			super(psConfig, Assets.getTexture('SunParticle'));
 			
             this.addEventListener(Event.COMPLETE, this._removeParticle);
 						
@@ -43,12 +39,12 @@ package Vertikill.Explosions
 		    
 		private function _removeParticle(event:Event):void
         {
-			trace('REMOVING PARTICLE');
-			
             Starling.juggler.remove(this);
-            
-			//removeChild(this, true);
+			
+			//this.dispatchEvent(new Event(Event.COMPLETE));
         }
+		
+		// PUBLIC
 		
 	}
 

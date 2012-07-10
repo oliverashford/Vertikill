@@ -28,6 +28,8 @@ package Vertikill
 			this.addNew();
 		}
 		
+		// PRIVATE
+		
 		public function move():void
 		{
 			// move each of the images
@@ -66,6 +68,8 @@ package Vertikill
 			
 			grassImage = null;
 		}
+		
+		// PUBLIC
 		
 		public function get speed():Number 
 		{

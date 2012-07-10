@@ -16,7 +16,11 @@ package Vertikill
 		private var _dX:uint = 10;		// player horizontal speed
 		
 		private var _playerGfx:MovieClip;
-					
+		
+		private var _bulletCounter:uint = 0;
+		
+		private var _currentWeaponDY:int = 10;
+		
 		public function Player(_startingCol:uint) 
 		{
 			this.y = 850;
@@ -33,6 +37,30 @@ package Vertikill
 			// show it
 			this.addChild(this._playerGfx);
 		}		
+		
+		// PRIVATE
+		
+		// PUBLIC
+		
+		public function update():void
+		{
+			var self:Player = this;
+			
+			// check bullet counter and if its time fire a bullet
+			this._bulletCounter++;
+			
+			if(this._bulletCounter == Settings.BULLET_COUNTER_MAX)
+			{
+				this.dispatchEvent(new DataEvent('FIRE_BULLET', {
+					x:self.x + (self.width / 2), 
+					y:self.y, 
+					dX:0, 
+					dY:self._currentWeaponDY, 
+					damage:10}));
+				
+				this._bulletCounter	= 0;
+			}
+		}
 		
 		public function get col():uint 
 		{

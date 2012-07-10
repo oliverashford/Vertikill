@@ -1,6 +1,9 @@
-package Vertikill 
+package Vertikill.Bullets 
 {
 	import flash.display.Bitmap;
+	
+	import Vertikill.Assets;
+	import Vertikill.Settings;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -15,14 +18,13 @@ package Vertikill
 	
 	 public class Bullet extends Sprite 
 	{
-		private var _speed:Number = 0;
+		private var _dY:Number = 0;
 		
 		public function Bullet(_x:int, _y:int) 
-		{
-			
-			this._speed = Settings.BULLET_SPEED;
+		{			
+			this._dY = Settings.BULLET_SPEED;
 		
-			this.x = _x;
+			this.x = _x - this.width;
 			this.y = _y;
 			
 			// create a Image object with our one texture
@@ -32,14 +34,16 @@ package Vertikill
 			this.addChild(bulletImage);
 		}	
 		
+		// PUBLIC
+		
 		public function get speed():Number 
 		{
-			return _speed;
+			return _dY;
 		}
 		
 		public function set speed(value:Number):void 
 		{
-			_speed = value;
+			_dY = value;
 		}	
 	}
 }

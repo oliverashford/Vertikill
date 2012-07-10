@@ -2,10 +2,11 @@ package Vertikill
 {	
 	import flash.display.Bitmap;
 	import flash.geom.Point;
-	import Vertikill.Collectibles.CollectibleController;
 	
+	import Vertikill.Collectibles.CollectibleController;	
 	import Vertikill.Explosions.ExplosionController;
 	import Vertikill.Enemies.EnemyController;
+	import Vertikill.Bullets.BulletController;
 	
 	import fr.kouma.starling.utils.Stats;
 	
@@ -29,9 +30,12 @@ package Vertikill
 	{		
 		private var _background:Background;
 		private var _player:Player;
+		
 		private var _enemyController:EnemyController;
 		private var _explosionController:ExplosionController;
 		private var _collectibleController:CollectibleController;
+		private var _bulletController:BulletController;
+		
 		private var _goldCounter:GoldCounter = new GoldCounter;
 		private var _distanceCounter:DistanceCounter = new DistanceCounter;
 		
@@ -41,12 +45,8 @@ package Vertikill
 		private var _width:Number;
 		
 		private var _lastFingerCol:Number;
-		
-		private var _bulletCounter:uint = 0;
-		
+				
 		private var _enemyCounter:uint = 0;
-		
-		private var _bullets:Vector.<Bullet> = new Vector.<Bullet>;
 				
 		public function Game() 
 		{			
@@ -55,8 +55,12 @@ package Vertikill
 			this.addEventListener(Event.ADDED_TO_STAGE, this._init);
 		}
 		
+		// PRIVATE
+		
 		private function _init(_event:Event):void
-		{			
+		{
+			var self:Game = this;
+			
 			// remove event listeneer
 			this.removeEventListener(Event.ADDED_TO_STAGE, this._init);
 									
@@ -69,6 +73,13 @@ package Vertikill
 			
 			// add players plane
 			this._player = new Player(this._lastFingerCol);
+			this._player.addEventListener('FIRE_BULLET', function(_event:DataEvent):void {
+				self._bulletController.addBullet(
+					_event.params.x, 
+					_event.params.y, 
+					_event.params.dX, 
+					_event.params.dY);
+			});
 			this.addChild(this._player);
 			
 			// add Explosion controller
@@ -78,6 +89,10 @@ package Vertikill
 			// add Collectible controller
 			this._collectibleController = new CollectibleController();
 			this.addChild(this._collectibleController);
+			
+			// add Bullet controller
+			this._bulletController = new BulletController();
+			this.addChild(this._bulletController);
 			
 			// add Enemy controller
 			this._enemyController = new EnemyController(this._explosionController);
@@ -104,7 +119,10 @@ package Vertikill
 		}
 		
 		private function _onEnterFrame(_event:EnterFrameEvent):void
-		{			
+		{
+			// update player
+			this._player.update();
+			
 			// check if player needs to move
 			if ((this._lastFingerCol < this._player.col) && (this._player.x >= 0))
 			{
@@ -130,40 +148,19 @@ package Vertikill
 			// move enemeies
 			this._enemyController.moveEnemies();
 			
-			// check bullet counter and if its time fire a bullet
-			this._bulletCounter++;
-			
-			if(this._bulletCounter == Settings.BULLET_COUNTER_MAX)
-			{
-				this._bulletCounter	= 0;
-				
-				var tempBullet:Bullet = new Bullet(this._player.x, this._player.y);
-				this._bullets.push(tempBullet);
-				
-				this.addChild(tempBullet);
-			}
-			
-			// move bullets
-			for (var i:uint = 0; i < this._bullets.length; i++) {
-				this._bullets[i].y -= this._bullets[i].speed;
-				
-				// check bullets position
-				if (this._bullets[i].y < 0) 
-				{
-					this.removeChild(this._bullets[i]);
-					this._bullets.splice(i, 1);
-				}
-				
-				// test for collision with enemies
+			// test for bullet collision with enemies
+			for (var i:uint = 0; i < this._bulletController.bullets.length; i++) {
 				for (var j:uint = 0; j < this._enemyController.enemies.length; j++ )
 				{
-					if (this._bullets[i].bounds.intersects(this._enemyController.enemies[j].bounds))
+					if (this._bulletController.bullets[i].bounds.intersects(this._enemyController.enemies[j].bounds))
 					{
 						this._enemyController.enemyDestroyed(j);
 					}
 				}
-				
 			}
+			
+			// update bullets
+			this._bulletController.update();
 			
 			// move collectibles
 			this._collectibleController.move();
@@ -189,5 +186,7 @@ package Vertikill
 			
 			//trace('this._lastFingerCol:' + this._lastFingerCol);
 		}
+		
+		// PUBLIC
 	}
 }

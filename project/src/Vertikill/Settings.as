@@ -20,7 +20,5 @@ package Vertikill
 		
 		// buttle settings
 		public static const BULLET_SPEED:uint = 10;
-		
-			
 	}
 }

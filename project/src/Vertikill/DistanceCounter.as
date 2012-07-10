@@ -20,6 +20,8 @@ package Vertikill
 			this.addEventListener(Event.ADDED_TO_STAGE, this._onAddedToStage);
 		}
 		
+		// PRIVATE
+		
 		private function _onAddedToStage(_event:Event):void 
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, _onAddedToStage);
@@ -29,6 +31,8 @@ package Vertikill
 			this._distanceText.y = 100;
 			this.addChild(this._distanceText);
 		}		
+		
+		// PUBLIC
 		
 		public function get distance():int 
 		{

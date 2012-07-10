@@ -20,6 +20,8 @@ package Vertikill
 			this.addEventListener(Event.ADDED_TO_STAGE, this._onAddedToStage);
 		}
 		
+		// PRIVATE
+		
 		private function _onAddedToStage(_event:Event):void 
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, _onAddedToStage);
@@ -29,6 +31,8 @@ package Vertikill
 			this._goldText.y = 120;	
 			this.addChild(this._goldText);		
 		}
+		
+		// PUBLIC
 		
 		public function get gold():int 
 		{
