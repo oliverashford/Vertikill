@@ -45,12 +45,12 @@ package Vertikill.Collectibles
 		
 		public function move():void
 		{
-			// move enemies
+			// move collectible
 			for (var i:uint = 0; i < this._collectibles.length; i++)
 			{
 				this._collectibles[i].y += this._collectibles[i].dY;
 				
-				// check enemies position
+				// check collectible position
 				if (this._collectibles[i].y > 960)
 				{
 					this._removed(i);

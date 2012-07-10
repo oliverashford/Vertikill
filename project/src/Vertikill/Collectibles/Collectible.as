@@ -19,7 +19,7 @@ package Vertikill.Collectibles
 	{
 		private var _collectibleGfx:MovieClip;
 		
-		private var _dY:int = 2;
+		private var _dY:int = 10;
 		
 		public function Collectible() 
 		{
@@ -31,8 +31,6 @@ package Vertikill.Collectibles
 			this.removeEventListener(Event.ADDED_TO_STAGE, _onAddedToStage);
 			
 			this._createCollectibleGfx();
-			
-			TweenMax.to(this, 3, {x:640, repeat:-1, yoyo:true});
 		}
 		
 		private function _createCollectibleGfx():void 

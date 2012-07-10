@@ -165,6 +165,9 @@ package Vertikill
 				
 			}
 			
+			// move collectibles
+			this._collectibleController.move();
+			
 			// move background
 			this._background.move();
 		}
