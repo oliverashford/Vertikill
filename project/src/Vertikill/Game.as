@@ -47,6 +47,8 @@ package Vertikill
 		private var _lastFingerCol:Number;
 				
 		private var _enemyCounter:uint = 0;
+		
+		private var _backgroundSpeedCounter:uint = 0;
 				
 		public function Game() 
 		{			
@@ -148,6 +150,16 @@ package Vertikill
 				this._enemyController.addEnemy();
 			}
 			
+			// check enemy counter and if its time add an enemy
+			this._backgroundSpeedCounter++;
+			
+			if(this._backgroundSpeedCounter == Settings.BACKGROUND_SPEED_INCREASE_GAP)
+			{
+				this._backgroundSpeedCounter = 0;
+				
+				this._background.speed = this._background.speed + 1;
+			}
+						
 			// move enemeies
 			this._enemyController.moveEnemies();
 			
@@ -190,7 +202,7 @@ package Vertikill
 			this._collectibleController.move();
 			
 			// move background
-			this._background.move();
+			this._background.update();
 		}
 
 		private function _onTouch(_event:TouchEvent):void

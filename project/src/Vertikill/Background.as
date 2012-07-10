@@ -30,8 +30,8 @@ package Vertikill
 		
 		// PRIVATE
 		
-		public function move():void
-		{
+		private function _move():void
+		{		
 			var self:Background = this;
 			
 			// move each of the images
@@ -76,6 +76,11 @@ package Vertikill
 		}
 		
 		// PUBLIC
+		
+		public function update():void
+		{
+			this._move();
+		}
 		
 		public function get speed():Number 
 		{

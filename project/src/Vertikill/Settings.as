@@ -9,6 +9,7 @@ package Vertikill
 	{	
 		// background settings
 		public static const BACKGROUND_START_SPEED:uint = 5;
+		public static const BACKGROUND_SPEED_INCREASE_GAP:uint = 1000;
 		
 		//bullet settings
 		public static const COL_COUNT:uint = 10;
@@ -19,6 +20,6 @@ package Vertikill
 		public static const ENEMY_COUNTER_MAX:uint = 200;
 		
 		// buttle settings
-		public static const BULLET_SPEED:uint = 10;
+		public static const BULLET_SPEED:uint = 10;	
 	}
 }
