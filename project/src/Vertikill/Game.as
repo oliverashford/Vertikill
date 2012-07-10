@@ -69,6 +69,9 @@ package Vertikill
 			
 			//add Background scroller
 			this._background = new Background(Settings.SCREEN_HEIGHT);
+			this._background.addEventListener('MOVED', function(_event:DataEvent):void {
+				self._distanceCounter.distance = self._distanceCounter.distance + _event.params.distance;
+			});
 			this.addChild(this._background);
 			
 			// add players plane
@@ -95,7 +98,7 @@ package Vertikill
 			this.addChild(this._bulletController);
 			
 			// add Enemy controller
-			this._enemyController = new EnemyController(this._explosionController);
+			this._enemyController = new EnemyController();
 			this.addChild(this._enemyController);
 			
 			// listen for touch events
@@ -149,13 +152,34 @@ package Vertikill
 			this._enemyController.moveEnemies();
 			
 			// test for bullet collision with enemies
-			for (var i:uint = 0; i < this._bulletController.bullets.length; i++) {
+			for (var i:uint = 0; i < this._bulletController.bullets.length; i++) 
+			{
 				for (var j:uint = 0; j < this._enemyController.enemies.length; j++ )
 				{
 					if (this._bulletController.bullets[i].bounds.intersects(this._enemyController.enemies[j].bounds))
 					{
+						// create explosion at the enemies location
+						this._explosionController.addExplosion(this._enemyController.enemies[j].x, this._enemyController.enemies[j].y);
+						
+						// create collectibles
+						this._collectibleController.addCollectible(this._enemyController.enemies[j].x, this._enemyController.enemies[j].y)
+					
+						// remove this enemy
 						this._enemyController.enemyDestroyed(j);
 					}
+				}
+			}
+			
+			// test for colectible collision with player
+			for (var k:uint = 0; k < this._collectibleController.collectibles.length; k++) 
+			{				
+				if (this._collectibleController.collectibles[k].bounds.intersects(this._player.bounds))
+				{
+					// add gold value
+					this._goldCounter.gold = this._goldCounter.gold + 10;
+					
+					// remove the collectible
+					this._collectibleController.collected(k);
 				}
 			}
 			

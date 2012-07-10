@@ -11,7 +11,7 @@ package Vertikill
 	
 	public class DistanceCounter extends Sprite
 	{
-		private var _distance:int = 0;
+		private var _distance:Number = 0;
 		
 		private var _distanceText:TextField;
 		
@@ -32,16 +32,22 @@ package Vertikill
 			this.addChild(this._distanceText);
 		}		
 		
+		private function _update():void
+		{
+			this._distanceText.text = int(this._distance) + 'KM';
+		}
+		
 		// PUBLIC
 		
-		public function get distance():int 
+		public function get distance():Number 
 		{
 			return _distance;
 		}
 		
-		public function set distance(value:int):void 
+		public function set distance(value:Number):void 
 		{
-			_distance = value;
+			this._distance = value;
+			this._update();			
 		}
 		
 	}

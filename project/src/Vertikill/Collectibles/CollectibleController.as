@@ -13,7 +13,6 @@ package Vertikill.Collectibles
 		
 		public function CollectibleController() 
 		{
-			this.addCollectible();
 		}
 		
 		// PRIVATE
@@ -26,17 +25,17 @@ package Vertikill.Collectibles
 		
 		// PUBLIC
 		
-		public function destroyed(_index:uint):void
-		{
-			var tempX:uint = this._collectibles[_index].x;
-			var tempY:uint = this._collectibles[_index].y;
-			
+		public function collected(_index:uint):void
+		{			
 			this._removed(_index);
 		}
 		
-		public function addCollectible():void
+		public function addCollectible(_x:uint, _y:uint):void
 		{
 			var tempCollectible:Collectible = new Collectible();
+			
+			tempCollectible.x = _x;
+			tempCollectible.y = _y;
 			
 			this.addChild(tempCollectible);
 			
@@ -56,6 +55,16 @@ package Vertikill.Collectibles
 					this._removed(i);
 				}
 			}
+		}
+		
+		public function get collectibles():Vector.<Collectible> 
+		{
+			return _collectibles;
+		}
+		
+		public function set collectibles(value:Vector.<Collectible>):void 
+		{
+			_collectibles = value;
 		}
 	}
 

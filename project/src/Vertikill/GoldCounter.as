@@ -30,18 +30,24 @@ package Vertikill
 			this._goldText.x = 10;
 			this._goldText.y = 120;	
 			this.addChild(this._goldText);		
+		}	
+		
+		private function _update():void
+		{
+			this._goldText.text = 'GOLD: ' + this._gold;
 		}
 		
 		// PUBLIC
 		
 		public function get gold():int 
 		{
-			return _gold;
+			return this._gold;
 		}
 		
 		public function set gold(value:int):void 
 		{
-			_gold = value;
+			this._gold = value;
+			this._update();
 		}
 		
 	}

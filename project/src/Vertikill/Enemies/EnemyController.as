@@ -19,13 +19,9 @@ package Vertikill.Enemies
 	public class EnemyController extends Sprite
 	{		
 		private var _enemies:Vector.<Enemy> = new Vector.<Enemy>;
-		
-		private var _explosionController:ExplosionController;
-		
-		public function EnemyController(_explosionController:ExplosionController)
-		{
-			this._explosionController = _explosionController;
-			
+				
+		public function EnemyController()
+		{			
 			this.addEnemy();
 		}
 		
@@ -46,8 +42,6 @@ package Vertikill.Enemies
 			this.addChild(tempEnemy);
 			
 			_enemies.push(tempEnemy);
-			
-			trace('ENEMY ADDED');
 		}
 		
 		public function moveEnemies():void
@@ -71,8 +65,6 @@ package Vertikill.Enemies
 			var tempY:uint = this._enemies[_index].y;
 			
 			this.removeEnemy(_index);
-			
-			this._explosionController.addExplosion(tempX, tempY);
 		}
 		
 		public function get enemies():Vector.<Enemy>

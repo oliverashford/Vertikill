@@ -32,6 +32,8 @@ package Vertikill
 		
 		public function move():void
 		{
+			var self:Background = this;
+			
 			// move each of the images
 			for (var i:uint = 0; i < this._panels.length; i++ ) {
 				
@@ -49,6 +51,10 @@ package Vertikill
 					this.addNew();
 				}
 			}
+			
+			this.dispatchEvent(new DataEvent('MOVED', {
+				distance: self._speed / 1000
+			}));
 		}
 		
 		private function addNew():void
