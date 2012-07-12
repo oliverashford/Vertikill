@@ -12,7 +12,6 @@ package Vertikill
 	
 	 public class Player extends Sprite 
 	{
-		private var _col:uint = 0;
 		private var _dX:uint = 10;		// player horizontal speed
 		
 		private var _playerGfx:MovieClip;
@@ -24,10 +23,7 @@ package Vertikill
 		public function Player(_startingCol:uint) 
 		{
 			this.y = 850;
-			
-			// set starting col
-			this._col = _startingCol;
-			
+						
 			// create the movie clip from the sprites in the sprite atlas which came from fiels with the name 'martian_'
 			this._playerGfx = new MovieClip(Assets.getAtlas().getTextures('plane_'), 1);
 						
@@ -60,16 +56,6 @@ package Vertikill
 				
 				this._bulletCounter	= 0;
 			}
-		}
-		
-		public function get col():uint 
-		{
-			return _col;
-		}
-		
-		public function set col(value:uint):void 
-		{
-			_col = value;
 		}
 		
 		public function get dX():uint 

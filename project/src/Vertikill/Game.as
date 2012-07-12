@@ -128,17 +128,8 @@ package Vertikill
 			// update player
 			this._player.update();
 			
-			// check if player needs to move
-			if ((this._lastFingerCol < this._player.col) && (this._player.x >= 0))
-			{
-				// move left
-				this._player.x -= this._player.dX;
-			}
-			else if ((this._lastFingerCol > this._player.col) && (this._player.x <= this._width))
-			{
-				// move right
-				this._player.x += this._player.dX;
-			}	
+			//move the player ship
+			this._movement();
 			
 			// check enemy counter and if its time add an enemy
 			this._enemyCounter++;
@@ -204,6 +195,49 @@ package Vertikill
 			// move background
 			this._background.update();
 		}
+		
+		private function _movement()
+		{		
+			var targetSweetSpot:Number = this._lastFingerCol * Settings.COL_WIDTH;
+			
+			// check if player needs to move
+			if (this._player.x > targetSweetSpot)
+			{
+				// move left
+				this._player.x -= this._player.dX;
+				
+				// check for moved past sweet spot
+				if (this._player.x < targetSweetSpot)
+				{
+					// set to exactly on the sweet spot
+					this._player.x = targetSweetSpot;
+				}
+				
+				// check for off the left off the screen
+				if (this._player.x < 0)
+				{
+					this._player.x = 0;
+				}	
+			}
+			else if (this._player.x < targetSweetSpot)
+			{
+				// move right
+				this._player.x += this._player.dX;
+				
+				// check for moved past sweet spot
+				if (this._player.x > targetSweetSpot)
+				{
+					// set to exactly on the sweet spot
+					this._player.x = targetSweetSpot;
+				}
+				
+				// check for off the left off the screen
+				if (this._player.x > this._width)
+				{
+					this._player.x = this._width;
+				}	
+			}	
+		}
 
 		private function _onTouch(_event:TouchEvent):void
 		{
@@ -220,7 +254,7 @@ package Vertikill
 			// set currently selected col
 			this._lastFingerCol = int(this._mouseX / Settings.COL_WIDTH);
 			
-			//trace('this._lastFingerCol:' + this._lastFingerCol);
+			trace('Setting this._lastFingerCol to:' + this._lastFingerCol);
 		}
 		
 		// PUBLIC
